@@ -22,12 +22,12 @@ function dfs(grid, r, c) {
   )
     return 0;
   total += grid[r][c];
-  let copyGrid = JSON.parse(JSON.stringify(grid));
-  copyGrid[r][c] = 0;
-  let up = dfs(copyGrid, r - 1, c);
-  let down = dfs(copyGrid, r + 1, c);
-  let right = dfs(copyGrid, r, c + 1);
-  let left = dfs(copyGrid, r, c - 1);
+  grid[r][c] = 0;
+  let up = dfs(grid, r - 1, c);
+  let down = dfs(grid, r + 1, c);
+  let right = dfs(grid, r, c + 1);
+  let left = dfs(grid, r, c - 1);
+  grid[r][c] = total;
   return Math.max(up, down, left, right) + total;
 }
 
