@@ -2,9 +2,8 @@
 
 function rightSideView(root, depth = 0, arr = []) {
   if (!root) return arr;
-  arr[depth] = root.val;
-  depth++;
-  if (root.left) rightSideView(root.left, depth, arr);
-  if (root.right) rightSideView(root.right, depth, arr);
+  if (!arr[depth]) arr[depth] = root.val;
+  rightSideView(root.right, depth + 1, arr);
+  rightSideView(root.left, depth + 1, arr);
   return arr;
 }
