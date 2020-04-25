@@ -29,3 +29,4 @@ function removeDuplicates(s, k) {
 
 console.log(removeDuplicates("deeedbbcccbdaa", 3) === "aa");
 console.log(removeDuplicates("pbbcggttciiippooaais", 2) === "ps");
+console.log(removeDuplicates("aaabbbacd", 2) === "cd");
