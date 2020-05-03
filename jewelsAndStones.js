@@ -5,13 +5,16 @@ The letters in J are guaranteed distinct, and all characters in J and S are lett
 */
 
 function numJewelsInStones(J, S) {
-  let count = 0;
-  for (let i = 0; i < J.length; i++) {
-    for (let j = 0; j < S.length; j++) {
-      if (J[i] === S[j]) count++;
-    }
+  let jewels = {};
+  for (let j of J) {
+    jewels[j] = 0;
   }
-  return count;
+  for (let i = 0; i < S.length; i++) {
+    if (S[i] in jewels) jewels[S[i]]++;
+  }
+  return Object.values(jewels).reduce((acc, curr) => {
+    return acc + curr;
+  }, 0);
 }
 
 console.log(numJewelsInStones("aA", "aAAbbbb") === 3);
